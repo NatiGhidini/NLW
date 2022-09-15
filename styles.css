@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+body{
+    background-image: url(./Fundo.jpg);
+    background-position:  top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body *{
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+header{
+    padding-top: 32px;
+    height: calc(120px + 32px); /*fazer sempre esse calculo para não dar diferença de tamanho*/
+}
+
+header div{
+    display: flex;
+    padding: 4px;
+    width: 120px;
+    margin: auto; /*alinha imagem, junto com width 100% e*/
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #9572FC 0%,#43E7AD 50.52%, #E2D45C 100%) ;
+    transition:  transform .3s;
+}
+
+header div:hover{
+    transform: scale(1.1)
+}
+
+header div img{
+    width: 100%; 
+    border-radius: 50%;
+    border:4px solid;
+}
+
+main{
+    max-width: 580px;
+    width: 90%;
+    margin:32px auto;
+    
+    display: grid;
+    gap:24px;    
+}
+
+section{
+    color:white;
+    background-image: linear-gradient(90deg, #9572FC 0%,#43E7AD 50.52%, #E2D45C 100%) ;
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div{
+    background-color:#2A2634 ;
+    padding: 32px;
+    padding-top:24px ;
+    border-radius: 8px;
+}
+
+section h2{
+    letter-spacing: -0.47px;
+}
+
+section p{
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+ul{
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+/*efeito de pulsar*/
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+section ul li{
+    transition: transform .3s;
+}
+
+.games-list img{    
+    width: 90px;
+    border-radius: 8px;
+  
+}
+
+.channel-list img{
+    width: 70px;
+    border-radius: 50px;
+    border: 1px solid #443E54;
+}
+
+/*animação*/
+
+
+/*elemento onde quero aplicar a animação*/
+
+header div{
+    animation: fromtop .7s .2s/*esse 1s é o delay*/ backwards/*puxa a animação para cima e não deixar ficar esquisito*/;
+
+    /*.1s = 0.100s menor , 1s = 1.0s*  maior*/
+}
+
+
+/*definir animação*/
+
+@keyframes fromtop/*nome qualquer*/ {
+
+    from {
+        opacity: 0;  /*serve para não demorar para aparecer a imagem*/
+        transform: translateY(-30px)
+    /*saindo de inicia */
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    /*indo para finaliza */
+    }
+
+}
+
+main section{
+    animation: frombottom .7s backwards;
+}
+main section:nth-child(1)/*nth-child numera os sections e coloca a ordem em que devem começar as animações*/{
+    animation-delay: 0; /*deixar sempre em 0 pq ja tem um tempo*/
+}
+
+main section:nth-child(2){
+   animation-delay: .4s;
+}
+
+main section:nth-child(3){
+    animation-delay: .8s; 
+}
+
+@keyframes frombottom{
+  
+    from {
+        opacity: 0;  /*serve para não demorar para aparecer a imagem*/
+        transform: translateY(30px) /* 30px começa de baixo*/
+    /*saindo de inicia */
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    /*indo para finaliza */
+    }
+} 
